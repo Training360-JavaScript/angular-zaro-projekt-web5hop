@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://nettuts.hu/jms/web5hop/',
 };
 
 /*
