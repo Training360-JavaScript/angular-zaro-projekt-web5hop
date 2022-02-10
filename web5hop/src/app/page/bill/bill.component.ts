@@ -20,7 +20,7 @@ export class BillComponent implements OnInit {
   // sort pipe params
   direction: string = 'asc';
   column: string = 'id';
-  type: any = 'number';
+  type: string = 'number';
 
   setSortParams(direction: string, column: string, type: string) {
     this.direction = direction;
