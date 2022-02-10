@@ -1,0 +1,39 @@
+<div class="col-2 form-group">
+  <select [(ngModel)]="filterKey" class="form-control">
+    <option value="">All column</option>
+    <option *ngFor="let key of keys" [value]=" key">{{key | titlecase}}</option>
+  </select>
+  <i (click)="setSortParams('desc', filterKey, 'number')" class="fa fa-arrow-up"></i>
+  <i (click)="setSortParams('asc', filterKey, 'number')" class="fa fa-arrow-down"></i>
+</div>
+
+<div class="col-8 mb-5 input_container">
+  <input [(ngModel)]="phrase" type="text" class="form-control" placeholder="Search...">
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Order ID</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list$ | async  | filter:phrase:filterKey | sort:direction:column:type">
+          <td>{{ item.id }}</td>
+          <td>{{ item.orderID }}</td>
+          <td>{{ item.amount }}</td>
+          <td>{{ item.status }}</td>
+          <td><button class="btn btn-info"><i class="material-icons">edit</i></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
