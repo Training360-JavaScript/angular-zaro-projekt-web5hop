@@ -10,13 +10,17 @@ import { BillService } from 'src/app/service/bill.service';
 })
 export class BillComponent implements OnInit {
   list$: Observable<Bill[]> = this.billService.getAll();
-  keys: string[] = Object.keys(new Bill());
+  billDefault: Bill = new Bill;
+  keys: string[] = Object.keys(this.billDefault);
+
+  // filter pipe params
   phrase: string = '';
   filterKey: string = '';
 
+  // sort pipe params
   direction: string = 'asc';
   column: string = 'id';
-  type: string | number = 'number';
+  type: any = 'number';
 
   setSortParams(direction: string, column: string, type: string) {
     this.direction = direction;
@@ -24,10 +28,9 @@ export class BillComponent implements OnInit {
       this.keys.find((key) => key.toLowerCase() === column.toLowerCase()) ||
       'id';
     this.column = key;
+    this.type = typeof this.billDefault[key]
 
-    /* TODO solve this type issue */
-    // type type =  Bill[typeof key];
-    // this.type = typeof Bill[key];
+    // console.log(typeof this.billDefault[key])
   }
 
   constructor(private billService: BillService) {}
