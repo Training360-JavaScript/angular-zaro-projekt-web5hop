@@ -20,9 +20,9 @@
             <span>
               <i [ngClass]="{
                   'fa': true,
-                  'fa-arrow-down': headerKeyActive !== 'id' || direction === 'asc',
-                  'fa-arrow-up': headerKeyActive === 'id' && direction === 'desc',
-                  'sortActive': headerKeyActive === 'id'
+                  'fa-arrow-down': headerSortActive !== 'id' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'id' && direction === 'desc',
+                  'sortActive': headerSortActive === 'id'
                 }">
               </i>
             </span>
@@ -32,9 +32,9 @@
             <span>
               <i [ngClass]="{
                   'fa': true,
-                  'fa-arrow-down': headerKeyActive !== 'orderID' || direction === 'asc',
-                  'fa-arrow-up': headerKeyActive === 'orderID' && direction === 'desc',
-                  'sortActive': headerKeyActive === 'orderID'
+                  'fa-arrow-down': headerSortActive !== 'orderID' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'orderID' && direction === 'desc',
+                  'sortActive': headerSortActive === 'orderID'
                 }">
               </i>
             </span>
@@ -44,9 +44,9 @@
             <span>
               <i [ngClass]="{
                   'fa': true,
-                  'fa-arrow-down': headerKeyActive !== 'amount' || direction === 'asc',
-                  'fa-arrow-up': headerKeyActive === 'amount' && direction === 'desc',
-                  'sortActive': headerKeyActive === 'amount'
+                  'fa-arrow-down': headerSortActive !== 'amount' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'amount' && direction === 'desc',
+                  'sortActive': headerSortActive === 'amount'
                 }">
               </i>
             </span>
@@ -56,9 +56,9 @@
             <span>
               <i [ngClass]="{
                   'fa': true,
-                  'fa-arrow-down': headerKeyActive !== 'status' || direction === 'asc',
-                  'fa-arrow-up': headerKeyActive === 'status' && direction === 'desc',
-                  'sortActive': headerKeyActive === 'status'
+                  'fa-arrow-down': headerSortActive !== 'status' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'status' && direction === 'desc',
+                  'sortActive': headerSortActive === 'status'
                 }">
               </i>
             </span>

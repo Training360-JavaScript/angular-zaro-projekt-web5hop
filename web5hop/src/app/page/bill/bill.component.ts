@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bill } from 'src/app/model/bill';
 import { BillService } from 'src/app/service/bill.service';
@@ -15,7 +15,7 @@ export class BillComponent implements OnInit {
   keys: string[] = Object.keys(this.billDefault);
 
   // active header variable
-  headerKeyActive: string = 'id';
+  headerSortActive: string = 'id';
 
   // filter pipe params
   phrase: string = '';
@@ -27,12 +27,12 @@ export class BillComponent implements OnInit {
   type: string = 'number';
 
   sortClickHandler(headerKey: string) {
-    if (headerKey === this.headerKeyActive) {
+    if (headerKey === this.headerSortActive) {
       this.direction = this.direction === 'asc' ? 'desc' : 'asc';
     } else {
       this.direction = 'asc';
     }
-    this.headerKeyActive = headerKey;
+    this.headerSortActive = headerKey;
     this.setSortParams(this.direction, headerKey, 'number');
   }
 
