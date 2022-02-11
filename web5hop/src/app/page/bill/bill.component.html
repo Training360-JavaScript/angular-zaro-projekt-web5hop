@@ -1,59 +1,89 @@
 <div class="col-2 form-group">
   <select [(ngModel)]="filterKey" class="form-control">
     <option value="">All column</option>
-    <option *ngFor="let key of keys" [value]=" key">{{key | titlecase}}</option>
+    <option *ngFor="let key of keys" [value]="key">
+      {{ key | titlecase }}
+    </option>
   </select>
-  <!-- <i (click)="setSortParams('desc', filterKey, 'number')" class="fa fa-arrow-up"></i>
-  <i (click)="setSortParams('asc', filterKey, 'number')" class="fa fa-arrow-down"></i> -->
 </div>
 
 <div class="col-8 mb-5 input_container">
-  <input [(ngModel)]="phrase" type="text" class="form-control" placeholder="Search...">
+  <input [(ngModel)]="phrase" type="text" class="form-control" placeholder="Search..." />
 </div>
 <div class="row">
   <div class="col-12">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Id
+          <th (click)="sortClickHandler('id')">
+            Id
             <span>
-              <i (click)="setSortParams('desc', 'id', 'number')" class="fa fa-arrow-up"></i>
-              <i (click)="setSortParams('asc', 'id', 'number')" class="fa fa-arrow-down"></i>
+              <i [ngClass]="{
+                  'fa': true,
+                  'fa-arrow-down': headerSortActive !== 'id' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'id' && direction === 'desc',
+                  'sortActive': headerSortActive === 'id'
+                }">
+              </i>
             </span>
           </th>
-          <th>Order ID
+          <th (click)="sortClickHandler('orderID')">
+            Order ID
             <span>
-              <i (click)="setSortParams('desc', 'orderID', 'number')" class="fa fa-arrow-up"></i>
-              <i (click)="setSortParams('asc', 'orderID', 'number')" class="fa fa-arrow-down"></i>
+              <i [ngClass]="{
+                  'fa': true,
+                  'fa-arrow-down': headerSortActive !== 'orderID' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'orderID' && direction === 'desc',
+                  'sortActive': headerSortActive === 'orderID'
+                }">
+              </i>
             </span>
           </th>
-          <th>Amount
+          <th (click)="sortClickHandler('amount')">
+            Amount
             <span>
-              <i (click)="setSortParams('desc', 'amount', 'number')" class="fa fa-arrow-up"></i>
-              <i (click)="setSortParams('asc', 'amount', 'number')" class="fa fa-arrow-down"></i>
+              <i [ngClass]="{
+                  'fa': true,
+                  'fa-arrow-down': headerSortActive !== 'amount' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'amount' && direction === 'desc',
+                  'sortActive': headerSortActive === 'amount'
+                }">
+              </i>
             </span>
           </th>
-          <th>Status
+          <th (click)="sortClickHandler('status')">
+            Status
             <span>
-              <i (click)="setSortParams('desc', 'status', 'number')" class="fa fa-arrow-up"></i>
-              <i (click)="setSortParams('asc', 'status', 'number')" class="fa fa-arrow-down"></i>
+              <i [ngClass]="{
+                  'fa': true,
+                  'fa-arrow-down': headerSortActive !== 'status' || direction === 'asc',
+                  'fa-arrow-up': headerSortActive === 'status' && direction === 'desc',
+                  'sortActive': headerSortActive === 'status'
+                }">
+              </i>
             </span>
           </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of list$ | async  | filter:phrase:filterKey | sort:direction:column:type">
+        <tr *ngFor="
+            let item of list$
+              | async
+              | filter: phrase:filterKey
+              | sort: direction:column:type
+          ">
           <td>{{ item.id }}</td>
           <td>{{ item.orderID }}</td>
           <td>{{ item.amount }}</td>
           <td>{{ item.status }}</td>
-          <td><button class="btn btn-info"><i class="material-icons">edit</i></button></td>
+          <td>
+            <button class="btn btn-info">
+              <i class="material-icons">edit</i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-
