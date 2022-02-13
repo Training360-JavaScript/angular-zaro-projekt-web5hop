@@ -17,7 +17,7 @@ export class CustomerService extends BaseService<Customer> {
   }
 
   createAddress(customer: Customer): Customer {
-    if (typeof c.address === 'string') {
+    if (typeof customer.address === 'string') {
       const addressParts = (customer.address as unknown as string).split(' ');
       const zip = addressParts.shift();
       const street = addressParts.join(' '); 
