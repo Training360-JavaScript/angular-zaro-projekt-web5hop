@@ -12,6 +12,6 @@ export class Address {
       this.country,
       this.city,
       this.street,
-    ].join(', ')
+    ].join(' ')
   }
 }
