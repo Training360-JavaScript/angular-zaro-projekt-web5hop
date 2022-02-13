@@ -26,29 +26,20 @@ export class BillComponent implements OnInit {
   column: string = 'id';
   type: string = 'number';
 
-  sortClickHandler(headerKey: string) {
+  sortClickHandler(headerKey: string, dataType: string = '') {
     if (headerKey === this.headerSortActive) {
       this.direction = this.direction === 'asc' ? 'desc' : 'asc';
     } else {
       this.direction = 'asc';
     }
     this.headerSortActive = headerKey;
-    this.setSortParams(this.direction, headerKey, 'number');
+    this.setSortParams(this.direction, headerKey, dataType);
   }
 
-  // TODO: need to clean up this
-  setSortParams(direction: string, column: string, type: string) {
+  setSortParams(direction: string, column: string, type: string = '') {
     this.direction = direction;
     this.column = column;
-    // this.type = type;
-    // let key =
-    //   this.keys.find((key) => key.toLowerCase() === column.toLowerCase()) ||
-    //   'id';
-    // this.column = key;
-    // this.type = typeof this.billDefault[key]
-    this.type = typeof this.billDefault[column]
-
-    // console.log(typeof this.billDefault[key])
+    this.type = type ? type : typeof this.billDefault[column]
   }
 
   constructor(private billService: BillService) {}
