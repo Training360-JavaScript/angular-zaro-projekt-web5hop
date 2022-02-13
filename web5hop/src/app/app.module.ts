@@ -10,6 +10,7 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { BillComponent } from './page/bill/bill.component';
 import { SortPipe } from './pipe/sort.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
+import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 import { CustomersComponent } from './page/customers/customers.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CustomersComponent } from './page/customers/customers.component';
     BillComponent,
     SortPipe,
     FilterPipe,
-    CustomersComponent
+    EditBillComponent,
+    CustomersComponent,
   ],
   imports: [
     BrowserModule,
