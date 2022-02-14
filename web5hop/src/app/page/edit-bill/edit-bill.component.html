@@ -1,1 +1,67 @@
 {{ bill$ | async | json }}
+<div class="row">
+  <div class="col-md-6">
+    <div  class="card">
+      <div class="card-header card-header-warning">
+        <h4 class="card-title" *ngIf="bill$ | async">Edit Bill</h4>
+        <h4 class="card-title" *ngIf="!(bill$ | async)">Add New Bill</h4>
+
+      </div>
+      <div class="card-body">
+        <form #billForm="ngForm">
+          <input type="hidden" name="id" [(ngModel)]="bill.id" required>
+
+          <h3 class="h5 text-secondary">Order ID *</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="number" class="form-control" name="orderId" [(ngModel)]="bill.orderID" required>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 text-secondary">Amount *</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="number" class="form-control" name="amount" [(ngModel)]="bill.amount" required>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 text-secondary">Status *</h3>
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+                <input [ngModel]="bill.status" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="new" >
+                New
+                <span class="circle">
+                    <span class="check"></span>
+                </span>
+            </label>
+        </div>
+        <div class="form-check form-check-radio">
+            <label class="form-check-label">
+                <input [ngModel]="bill.status" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="paid" checked>
+                Paid
+                <span class="circle">
+                    <span class="check"></span>
+                </span>
+            </label>
+        </div>
+
+
+
+
+          <button *ngIf="bill.id!==0" (click)="onUpdate(bill)" type="submit" class="btn btn-primary pull-right">Update
+            Bill</button>
+          <button *ngIf="bill.id===0" (click)="onCreate(bill)" type="submit" class="btn btn-primary pull-right">Create
+            Bill</button>
+          <!-- <div class="clearfix"></div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>

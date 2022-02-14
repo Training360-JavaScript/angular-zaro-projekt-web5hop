@@ -12,6 +12,7 @@ import { BillService } from 'src/app/service/bill.service';
 export class EditBillComponent implements OnInit {
 
   bill$!: Observable<Bill>;
+  bill: Bill = new Bill();
 
   constructor(
     private billService:BillService,
@@ -24,6 +25,22 @@ export class EditBillComponent implements OnInit {
       switchMap((params) =>
         this.billService.get(params['id']))
     );
+    this.bill$.subscribe(data => {
+      if(data) this.bill = data
+    });
   }
+
+  onCreate(bill: Bill) {
+    this.billService.create(bill).subscribe(
+      bill => this.router.navigate(['/', 'bill']),
+    )
+  }
+
+  onUpdate(bill: Bill) {
+    this.billService.update(bill).subscribe(
+      bill => this.router.navigate(['/', 'bill']),
+    )
+  }
+
 
 }
