@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'edit-customer/:id',
     component: EditCustomerComponent,
-  }
+  },
   {
     path: 'product',
     component: ProductComponent,
