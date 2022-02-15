@@ -91,7 +91,7 @@
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('address')">
+          <th (click)="sortClickHandler('address', 'string')">
             Address
             <span>
               <i
@@ -130,25 +130,25 @@
       <tbody>
         <tr
           *ngFor="
-            let item of customerList$
+            let customer of customerList$
               | async
               | filter: phrase:filterKey
               | sort: direction:column:type
           "
         >
-          <td>{{ item.id }}</td>
-          <td>{{ item.firstName }}</td>
-          <td>{{ item.lastName }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.address.full }}</td>
-          <td>{{ item.active }}</td>
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address.full }}</td>
+          <td>{{ customer.active }}</td>
           <td>
             <div
               class="btn-group"
               role="group"
               aria-label="Button group with edit and delete buttons"
             >
-              <button class="btn btn-warning">
+              <button [routerLink]="['/edit-customer', customer.id]" class="btn btn-warning">
                 <i class="material-icons">edit</i>
               </button>
               <button class="btn btn-danger">
