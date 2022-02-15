@@ -1,8 +1,8 @@
+import { Customer } from './../model/customer';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Address } from '../model/address';
-import { Customer } from '../model/customer';
 import { BaseService } from './base.service';
 
 @Injectable({
@@ -39,6 +39,13 @@ export class CustomerService extends BaseService<Customer> {
   override get(id: number): Observable<Customer> {
     return super.get(id).pipe(
       map( customer => this.createAddress(customer) )
+    );
+  }
+
+  override update(customer: Customer): Observable<Customer> {
+    return this.http.patch<Customer>(
+      `${this.apiUrl}${this.entityName}/${customer.id}`,
+      customer
     );
   }
 }

@@ -12,6 +12,7 @@ import { SortPipe } from './pipe/sort.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 import { CustomersComponent } from './page/customers/customers.component';
+import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
 import { ProductComponent } from './page/product/product.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 
@@ -25,6 +26,7 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     FilterPipe,
     EditBillComponent,
     CustomersComponent,
+    EditCustomerComponent,
     ProductComponent,
     EditProductComponent,
   ],
