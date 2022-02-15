@@ -2,7 +2,6 @@
 <div class="row">
   <div class="col-md-6 col-sm-8">
     <div class="card">
-
       <div class="card-header card-header-primary">
         <h4 class="card-title" *ngIf="bill$ | async">Edit Bill</h4>
         <h4 class="card-title" *ngIf="!(bill$ | async)">Add New Bill</h4>
@@ -10,27 +9,76 @@
 
       <div class="card-body">
         <form #billForm="ngForm">
-          <h3 class="h4 text-primary font-weight-bold">ID:
+          <h3 class="h4 text-primary font-weight-bold">
+            ID:
             <span *ngIf="bill.id">{{ bill.id }}</span>
             <span *ngIf="!bill.id">auto-generated</span>
           </h3>
-          <input type="hidden" name="id" [(ngModel)]="bill.id" required>
+          <input type="hidden" name="id" [(ngModel)]="bill.id" required />
 
           <h3 class="h5 text-secondary">Order ID *</h3>
           <div class="form-group">
-            <input type="number" class="form-control" name="orderId" [(ngModel)]="bill.orderID" required>
+            <input
+              type="number"
+              class="form-control"
+              id="orderId"
+              name="orderId"
+              [(ngModel)]="bill.orderID"
+              #orderId="ngModel"
+              required
+              pattern="^[1-9][0-9]*$"
+              min="1"
+            />
+            <div
+              *ngIf="orderId.invalid && (orderId.dirty || orderId.touched)"
+              class="alert"
+            >
+              <div *ngIf="orderId.errors?.['pattern']">
+                Please enter a number greater than 0
+              </div>
+              <div *ngIf="orderId.errors?.['required']">
+                Order Id is required
+              </div>
+            </div>
           </div>
 
           <h3 class="h5 text-secondary">Amount *</h3>
           <div class="form-group">
-            <input type="number" class="form-control" name="amount" [(ngModel)]="bill.amount" required>
+            <input
+              type="number"
+              class="form-control"
+              id="amount"
+              name="amount"
+              [(ngModel)]="bill.amount"
+              #amount="ngModel"
+              required
+              pattern="^[1-9][0-9]*$"
+              min="1"
+            />
+            <div
+              *ngIf="amount.invalid && (amount.dirty || amount.touched)"
+              class="alert"
+            >
+              <div *ngIf="amount.errors?.['pattern']">
+                Please enter a number greater than 0
+              </div>
+              <div *ngIf="amount.errors?.['required']">
+                Amount is required
+              </div>
+            </div>
           </div>
 
           <h3 class="h5 text-secondary">Status *</h3>
           <div class="form-check form-check-radio">
             <label class="form-check-label">
-              <input [ngModel]="bill.status" class="form-check-input" type="radio" name="exampleRadios"
-                id="exampleRadios1" value="new">
+              <input
+                [ngModel]="bill.status"
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios1"
+                value="new"
+              />
               New
               <span class="circle">
                 <span class="check"></span>
@@ -39,8 +87,15 @@
           </div>
           <div class="form-check form-check-radio">
             <label class="form-check-label">
-              <input [ngModel]="bill.status" class="form-check-input" type="radio" name="exampleRadios"
-                id="exampleRadios2" value="paid" checked>
+              <input
+                [ngModel]="bill.status"
+                class="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios2"
+                value="paid"
+                checked
+              />
               Paid
               <span class="circle">
                 <span class="check"></span>
@@ -49,19 +104,28 @@
           </div>
 
           <div class="text-right">
-            <button *ngIf="bill$ | async" (click)="onUpdate(bill)" type="submit" class="btn btn-primary">Update
-              Bill</button>
-            <button *ngIf="!(bill$ | async)" (click)="onCreate(bill)" type="submit" class="btn btn-primary">Create
-              Bill</button>
+            <button
+              [disabled]="billForm.invalid"
+              *ngIf="bill$ | async"
+              (click)="onUpdate(bill)"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Update Bill
+            </button>
+            <button
+              [disabled]="billForm.invalid"
+              *ngIf="!(bill$ | async)"
+              (click)="onCreate(bill)"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Create Bill
+            </button>
           </div>
-
-
-
         </form>
       </div>
     </div>
   </div>
-  <div class="col-md-4">
-
-  </div>
+  <div class="col-md-4"></div>
 </div>
