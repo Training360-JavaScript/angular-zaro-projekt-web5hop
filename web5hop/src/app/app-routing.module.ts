@@ -4,6 +4,7 @@ import { BillComponent } from './page/bill/bill.component';
 import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 import { CustomersComponent } from './page/customers/customers.component';
 import { ProductComponent } from './page/product/product.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'product',
     component: ProductComponent,
+  },
+  {
+    path: 'edit-product/:id',
+    component: EditProductComponent,
   },
 ];
 

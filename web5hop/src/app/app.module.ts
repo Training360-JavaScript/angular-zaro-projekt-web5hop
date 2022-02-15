@@ -13,6 +13,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 import { CustomersComponent } from './page/customers/customers.component';
 import { ProductComponent } from './page/product/product.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductComponent } from './page/product/product.component';
     EditBillComponent,
     CustomersComponent,
     ProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
