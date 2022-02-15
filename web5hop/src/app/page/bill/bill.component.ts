@@ -42,6 +42,11 @@ export class BillComponent implements OnInit {
     this.type = type ? type : typeof this.billDefault[column]
   }
 
+  onDelete(id: number) {
+    this.billService.delete(id).subscribe(() => {});
+    this.list$ = this.billService.getAll();
+  }
+
   constructor(private billService: BillService) {}
 
   ngOnInit(): void {}

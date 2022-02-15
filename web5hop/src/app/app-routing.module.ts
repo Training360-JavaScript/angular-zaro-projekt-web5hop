@@ -4,6 +4,8 @@ import { BillComponent } from './page/bill/bill.component';
 import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 import { CustomersComponent } from './page/customers/customers.component';
 import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
+import { ProductComponent } from './page/product/product.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -13,7 +15,7 @@ const routes: Routes = [
   {
     path: 'edit-bill/:id',
     component: EditBillComponent,
-  },
+  },  
   {
     path: 'customer',
     component: CustomersComponent,
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'edit-customer/:id',
     component: EditCustomerComponent,
+  }
+  {
+    path: 'product',
+    component: ProductComponent,
+  },
+  {
+    path: 'edit-product/:id',
+    component: EditProductComponent,
   },
 ];
 
