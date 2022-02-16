@@ -14,4 +14,11 @@ export class Address {
       this.street,
     ].join(' ')
   }
+  constructor(obj: any = {}) {
+    this.zip = obj.zip || 0;
+    this.country = obj.country || '';
+    this.city = obj.city || '';
+    this.street = obj.street || '';
+    this.notes = obj.notes || '';
+  }
 }
