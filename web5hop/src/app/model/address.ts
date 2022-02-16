@@ -12,7 +12,7 @@ export class Address {
       this.country,
       this.city,
       this.street,
-    ].join(' ')
+    ].filter(e => e).join(' ')
   }
   constructor(obj: any = {}) {
     this.zip = obj.zip || 0;
