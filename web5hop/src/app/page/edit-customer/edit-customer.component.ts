@@ -26,7 +26,7 @@ export class EditCustomerComponent implements OnInit {
 
   onUpdate(customer: Customer): void {
     this.customerService.update(customer).subscribe(
-      customer => this.router.navigate(['/', 'customers']),
+      customer => this.router.navigate(['/', 'customer']),
       err => console.error(err),
     );
   }

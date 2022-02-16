@@ -17,10 +17,15 @@ export class CustomerService extends BaseService<Customer> {
   }
 
   createAddress(customer: Customer): Customer {
+    if (typeof customer.address === 'object') {
+      const address = new Address(customer.address);
+      customer.address = address;
+    }
+
     if (typeof customer.address === 'string') {
       const addressParts = (customer.address as unknown as string).split(' ');
       const zip = addressParts.shift();
-      const street = addressParts.join(' '); 
+      const street = addressParts.join(' ');
       customer.address = new Address();
       customer.address.zip = parseInt(zip || '');
       customer.address.street = street;
