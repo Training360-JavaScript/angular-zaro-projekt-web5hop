@@ -151,7 +151,7 @@
               <button [routerLink]="['/edit-customer', customer.id]" class="btn btn-warning">
                 <i class="material-icons">edit</i>
               </button>
-              <button class="btn btn-danger">
+              <button (click)="onDelete(customer.id)" class="btn btn-danger">
                 <i class="material-icons">delete</i>
               </button>
             </div>
