@@ -6,7 +6,7 @@ import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 
 @Component({
-  selector: 'app-edit-customer',
+  selector: 'app-edit-order',
   templateUrl: './edit-order.component.html',
   styleUrls: ['./edit-order.component.scss']
 })

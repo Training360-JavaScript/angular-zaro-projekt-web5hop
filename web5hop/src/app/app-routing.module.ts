@@ -1,5 +1,5 @@
-import { EditOrderComponent } from './edit-order/edit-order.component';
-import { OrderComponent } from './pages/order/order.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
+import { OrderComponent } from './page/order/order.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BillComponent } from './page/bill/bill.component';

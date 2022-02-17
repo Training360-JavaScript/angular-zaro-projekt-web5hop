@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { EditCustomerComponent } from './page/edit-customer/edit-customer.compon
 import { ProductComponent } from './page/product/product.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { OrderComponent } from './page/order/order.component';
-import { EditOrderComponent } from './edit-order/edit-order.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +34,14 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     EditProductComponent,
     OrderComponent,
     EditOrderComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
 
   ],
   providers: [],

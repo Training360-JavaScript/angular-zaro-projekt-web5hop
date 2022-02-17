@@ -37,7 +37,6 @@
           class="form-control"
         />
       </div>
-
       <div class="form-group border border-secondary rounded p-3 pb-4 pt-4">
         <div>
           <h5>ADDRESS</h5>
@@ -52,15 +51,17 @@
               class="form-control"
             />
           </div>
-      <button
-        [disabled]="userForm.invalid"
-        class="btn btn-primary btn-block mt-3"
-      >
-        <i class="fa fa-save"></i>
-        Update
-      </button>
+          <button
+            [disabled]="userForm.invalid"
+            class="btn btn-primary btn-block mt-3"
+          >
+            <i class="fa fa-save"></i>
+            Update
+          </button>
+        </div>
+      </div>
+
+      {{ order$ | async | json }}
     </form>
   </div>
 </div>
-
-{{ order$ | async | json }}
