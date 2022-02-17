@@ -6,8 +6,13 @@ import { CustomersComponent } from './page/customers/customers.component';
 import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
 import { ProductComponent } from './page/product/product.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { DashboardComponent } from './page/dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent,
+  },
   {
     path: 'bill',
     component: BillComponent,
@@ -32,7 +37,10 @@ const routes: Routes = [
     path: 'edit-product/:id',
     component: EditProductComponent,
   },
-  
+  {
+    path: '**',
+    component: DashboardComponent,
+  }
 ];
 
 @NgModule({
