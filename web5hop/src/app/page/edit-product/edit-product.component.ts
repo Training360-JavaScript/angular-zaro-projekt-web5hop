@@ -26,7 +26,7 @@ export class EditProductComponent implements OnInit {
 
   onUpdate(product: Product): void {
     this.productService.update(product).subscribe(
-      product => this.router.navigate(['/', 'user']),
+      product => this.router.navigate(['/', 'product']),
       err => console.error(err)
     );
   }
