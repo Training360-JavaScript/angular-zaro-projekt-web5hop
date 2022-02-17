@@ -40,6 +40,12 @@ export class CustomersComponent implements OnInit {
     this.type = type ? type : typeof this.customerDefault[column]
   }
 
+  onDelete(id: number) {
+    this.customerService.delete(id).subscribe(() => {
+      this.customerList$ = this.customerService.getAll();
+    });
+  }
+
   constructor(
     private customerService: CustomerService,
   ) { }
