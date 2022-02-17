@@ -15,6 +15,8 @@ import { CustomersComponent } from './page/customers/customers.component';
 import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
 import { ProductComponent } from './page/product/product.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { OrderComponent } from './page/order/order.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     EditCustomerComponent,
     ProductComponent,
     EditProductComponent,
+    OrderComponent,
+    EditOrderComponent,
   ],
   imports: [
     BrowserModule,
