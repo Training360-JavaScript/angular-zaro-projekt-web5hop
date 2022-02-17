@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'edit-product/:id',
     component: EditProductComponent,
   },
+  
 ];
 
 @NgModule({

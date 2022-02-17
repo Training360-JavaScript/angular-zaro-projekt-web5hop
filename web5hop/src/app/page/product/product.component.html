@@ -154,9 +154,9 @@
           <td>{{ item.active }}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Button group with edit and delete buttons">
-              <button class="btn btn-warning">
+              <button [routerLink]="['/', 'edit-product', item.id]" class="btn btn-warning">
                 <i class="material-icons">edit</i>
-              </button>
+              </button>              
               <button class="btn btn-danger">
                 <i class="material-icons">delete</i>
               </button>
