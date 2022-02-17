@@ -19,7 +19,7 @@
 </div>
 
 <div>
-  <button class="col-12 mb-5 btn btn-info">Create new bill</button>
+  <button [routerLink]="['/edit-bill', 0]" class="col-12 mb-5 btn btn-info">Create new bill</button>
 </div>
 
 <div class="row">
@@ -114,10 +114,10 @@
               role="group"
               aria-label="Button group with edit and delete buttons"
             >
-              <button [routerLink]="['/edit-bill', item.id ]" class="btn btn-warning">
+              <button [routerLink]="['/edit-bill', item.id]" class="btn btn-warning">
                 <i class="material-icons">edit</i>
               </button>
-              <button class="btn btn-danger">
+              <button (click)="onDelete(item.id)" class="btn btn-danger">
                 <i class="material-icons">delete</i>
               </button>
             </div>
