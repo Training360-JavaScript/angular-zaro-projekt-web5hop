@@ -25,10 +25,10 @@ export class EditProductComponent implements OnInit {
   }
 
   onUpdate(product: Product): void {
-    this.productService.update(product).subscribe(
-      product => this.router.navigate(['/', 'product']),
-      err => console.error(err)
-    );
+    this.productService.update(product).subscribe({
+      next: product => this.router.navigate(['/', 'product']),
+      error: err => console.error(err)
+    });
   }
 
 }
