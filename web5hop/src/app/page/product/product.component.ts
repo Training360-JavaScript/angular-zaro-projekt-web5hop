@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(id: number, index: number) {
     this.productService.delete(id).subscribe(
-      () => {this.productService.getAll().splice(index, 1)}
+      () => {this.productList$ = this.productService.getAll()}
     )
   }
 
