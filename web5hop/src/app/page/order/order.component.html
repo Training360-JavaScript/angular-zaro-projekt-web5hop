@@ -114,17 +114,17 @@
       <tbody>
         <tr
           *ngFor="
-            let item of orderList$
+            let order of orderList$
               | async
               | filter: phrase:filterKey
               | sort: direction:column:type
           "
         >
-          <td>{{ item.id }}</td>
-          <td>{{ item.customerID }}</td>
-          <td>{{ item.productID }}</td>
-          <td>{{ item.amount }}</td>
-          <td>{{ item.status }}</td>
+          <td>{{ order.id }}</td>
+          <td>{{ order.customerID }}</td>
+          <td>{{ order.productID }}</td>
+          <td>{{ order.amount }}</td>
+          <td>{{ order.status }}</td>
 
           <td>
             <div
@@ -132,10 +132,13 @@
               role="group"
               aria-label="Button group with edit and delete buttons"
             >
-              <button class="btn btn-warning" [routerLink]="['/edit-order', 0]">
+              <button
+                class="btn btn-warning"
+                [routerLink]="['/edit-order', order.id]"
+              >
                 <i class="material-icons">edit</i>
               </button>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" (click)="onDelete(order.id)">
                 <i class="material-icons">delete</i>
               </button>
             </div>

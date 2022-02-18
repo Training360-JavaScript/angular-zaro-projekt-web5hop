@@ -40,7 +40,11 @@ export class OrderComponent implements OnInit {
     this.column = column;
     this.type = type ? type : typeof this.orderDefault[column];
   }
-
+  onDelete(id: number) {
+    this.orderService.delete(id).subscribe(() => {
+      this.orderList$ = this.orderService.getAll();
+    });
+  }
   constructor(
     private orderService: OrderService,
   ) { }
