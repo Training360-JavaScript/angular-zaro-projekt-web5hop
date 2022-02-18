@@ -12,6 +12,7 @@ import { OrderService } from 'src/app/service/order.service';
 })
 export class EditOrderComponent implements OnInit {
 
+  order: Order = new Order;
   order$: Observable<Order> = this.activatedRoute.params.pipe(
     switchMap(params => this.orderService.get(params['id'])),
   );
@@ -22,7 +23,14 @@ export class EditOrderComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.order$ = this.activatedRoute.params.pipe(
+      switchMap((params) =>
+        this.orderService.get(params['id']))
+    );
+    this.order$.subscribe(data => {
+      if (data) this.order = data
+    });
   }
 
   onUpdate(order: Order): void {
@@ -31,5 +39,9 @@ export class EditOrderComponent implements OnInit {
       err => console.error(err),
     );
   }
-
+  onCreate(order: Order) {
+    this.orderService.create(order).subscribe(
+      order => this.router.navigate(['/', 'order']),
+    )
+  }
 }
