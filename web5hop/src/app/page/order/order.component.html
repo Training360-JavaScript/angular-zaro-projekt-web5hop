@@ -106,8 +106,6 @@
               </i>
             </span>
           </th>
-
-          <th></th>
         </tr>
       </thead>
 
@@ -132,7 +130,7 @@
               role="group"
               aria-label="Button group with edit and delete buttons"
             >
-              <button class="btn btn-warning">
+              <button class="btn btn-warning" [routerLink]="['/edit-order', 0]">
                 <i class="material-icons">edit</i>
               </button>
               <button class="btn btn-danger">
