@@ -22,6 +22,7 @@ import { OrderComponent } from './page/order/order.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     RouterModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],
