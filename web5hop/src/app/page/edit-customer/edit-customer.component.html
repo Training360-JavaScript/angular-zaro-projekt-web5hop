@@ -106,12 +106,13 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="customer.active"
+                [checked]="customer.active"
                 class="form-check-input"
                 type="radio"
                 name="exampleRadios"
                 id="exampleRadios1"
-                value="true"
+                [value]="true"
+                (change)="customer.active = !customer.active"
               />
               True
               <span class="circle">
@@ -122,13 +123,13 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="customer.active"
+                [checked]="!customer.active"
                 class="form-check-input"
                 type="radio"
                 name="exampleRadios"
                 id="exampleRadios2"
-                value="false"
-                checked
+                [value]="false"
+                (change)="customer.active = !customer.active"
               />
               False
               <span class="circle">
@@ -160,7 +161,5 @@
         </form>
       </div>
     </div>
-
-    {{ customer$ | async | json }}
   </div>
 </div>
