@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/model/product';
-import { ProductService } from 'src/app/service/product.service';
+import { Order } from 'src/app/model/order';
+import { OrderService } from 'src/app/service/order.service';
 
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
-  productList$: Observable<Product[]> = this.productService.getAll();
-  productDefault: Product = new Product();
-  keys: string[] = Object.keys(this.productDefault);
+
+  orderList$: Observable<Order[]> = this.orderService.getAll();
+  orderDefault: Order = new Order();
+  keys: string[] = Object.keys(this.orderDefault);
 
   headerSortActive: string = 'id';
 
@@ -37,17 +38,15 @@ export class ProductComponent implements OnInit {
   setSortParams(direction: string, column: string, type: string = '') {
     this.direction = direction;
     this.column = column;
-    this.type = type ? type : typeof this.productDefault[column];
+    this.type = type ? type : typeof this.orderDefault[column];
   }
-
-  deleteProduct(id: number, index: number) {
-    this.productService.delete(id).subscribe(
-      () => {this.productList$ = this.productService.getAll()}
-    )
+  onDelete(id: number) {
+    this.orderService.delete(id).subscribe(() => {
+      this.orderList$ = this.orderService.getAll();
+    });
   }
-
   constructor(
-    private productService: ProductService,
+    private orderService: OrderService,
   ) { }
 
   ngOnInit(): void {

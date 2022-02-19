@@ -9,7 +9,12 @@
 </div>
 
 <div class="col-8 mb-5 input_container">
-  <input [(ngModel)]="phrase" type="text" class="form-control" placeholder="Search..." />
+  <input
+    [(ngModel)]="phrase"
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+  />
 </div>
 
 <div>
@@ -24,112 +29,128 @@
           <th (click)="sortClickHandler('id')">
             Id
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'id' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'id' && direction === 'desc',
-                    sortActive: headerSortActive === 'id'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'id' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'id' && direction === 'desc',
+                  sortActive: headerSortActive === 'id'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('name')">
             Name
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'name' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'name' && direction === 'desc',
-                    sortActive: headerSortActive === 'name'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'name' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'name' && direction === 'desc',
+                  sortActive: headerSortActive === 'name'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('type')">
             Type
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'type' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'type' && direction === 'desc',
-                    sortActive: headerSortActive === 'type'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'type' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'type' && direction === 'desc',
+                  sortActive: headerSortActive === 'type'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('catID')">
             Catalog ID
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'catID' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'catID' && direction === 'desc',
-                    sortActive: headerSortActive === 'catID'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'catID' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'catID' && direction === 'desc',
+                  sortActive: headerSortActive === 'catID'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('description')">
             Description
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'description' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'description' && direction === 'desc',
-                    sortActive: headerSortActive === 'description'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'description' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'description' && direction === 'desc',
+                  sortActive: headerSortActive === 'description'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('price')">
             Price
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'price' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'price' && direction === 'desc',
-                    sortActive: headerSortActive === 'price'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'price' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'price' && direction === 'desc',
+                  sortActive: headerSortActive === 'price'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('featured')">
             Featured
             <span>
-              <i [ngClass]="{
-                      fa: true,
-                      'fa-arrow-down':
-                        headerSortActive !== 'featured' || direction === 'asc',
-                      'fa-arrow-up':
-                        headerSortActive === 'featured' && direction === 'desc',
-                      sortActive: headerSortActive === 'featured'
-                    }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'featured' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'featured' && direction === 'desc',
+                  sortActive: headerSortActive === 'featured'
+                }"
+              >
               </i>
             </span>
           </th>
           <th (click)="sortClickHandler('active')">
             Active
             <span>
-              <i [ngClass]="{
-                    fa: true,
-                    'fa-arrow-down':
-                      headerSortActive !== 'active' || direction === 'asc',
-                    'fa-arrow-up':
-                      headerSortActive === 'active' && direction === 'desc',
-                    sortActive: headerSortActive === 'active'
-                  }">
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'active' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'active' && direction === 'desc',
+                  sortActive: headerSortActive === 'active'
+                }"
+              >
               </i>
             </span>
           </th>
@@ -138,12 +159,15 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="
-              let item of productList$
-                | async
-                | filter: phrase:filterKey
-                | sort: direction:column:type
-            ">
+
+        <tr
+          *ngFor="
+            let item of productList$
+              | async
+              | filter: phrase:filterKey
+              | sort: direction:column:type
+          "
+        >
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.type }}</td>
@@ -152,16 +176,31 @@
           <td>{{ item.price }}</td>
           <td>{{ item.featured }}</td>
           <td>{{ item.active }}</td>
-          <td>
-            <div class="btn-group" role="group" aria-label="Button group with edit and delete buttons">
-              <button class="btn btn-warning">
-                <i class="material-icons">edit</i>
-              </button>
-              <button class="btn btn-danger">
-                <i class="material-icons">delete</i>
-              </button>
-            </div>
-          </td>
+
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Button group with edit and delete buttons"
+          >
+            <button class="btn btn-warning">
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Button group with edit and delete buttons"
+              >
+                <button
+                  [routerLink]="['/', 'edit-product', item.id]"
+                  class="btn btn-warning"
+                >
+                  <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger">
+                  <i class="material-icons">delete</i>
+                </button>
+              </div>
+            </button>
+          </div>
+
         </tr>
       </tbody>
     </table>

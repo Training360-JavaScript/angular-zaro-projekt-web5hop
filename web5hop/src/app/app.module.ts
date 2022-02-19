@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +19,14 @@ import { ProductComponent } from './page/product/product.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { NgChartsModule } from 'ng2-charts';
 
+
+
+import { OrderComponent } from './page/order/order.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
+
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +41,10 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     EditCustomerComponent,
     ProductComponent,
     EditProductComponent,
+    OrderComponent,
+    EditOrderComponent,
     DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +52,8 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     NgChartsModule,
+    RouterModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],

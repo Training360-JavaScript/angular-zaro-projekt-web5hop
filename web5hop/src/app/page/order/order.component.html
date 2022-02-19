@@ -1,4 +1,3 @@
-
 <div class="col-2 form-group">
   <label for="tableSearch">Keresés:</label>
   <select [(ngModel)]="filterKey" id="tableSearch" class="form-control">
@@ -19,7 +18,9 @@
 </div>
 
 <div>
-  <button [routerLink]="['/edit-customer', 0]" class="col-12 mb-5 btn btn-info">Create new customer</button>
+  <button [routerLink]="['/edit-order', 0]" class="col-12 mb-5 btn btn-info">
+    Create new product
+  </button>
 </div>
 
 <div class="row">
@@ -43,115 +44,101 @@
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('firstName')">
-            Firstname
+          <th (click)="sortClickHandler('customerID')">
+            Name
             <span>
               <i
                 [ngClass]="{
                   fa: true,
                   'fa-arrow-down':
-                    headerSortActive !== 'firstName' || direction === 'asc',
+                    headerSortActive !== 'customerID' || direction === 'asc',
                   'fa-arrow-up':
-                    headerSortActive === 'firstName' && direction === 'desc',
-                  sortActive: headerSortActive === 'firstName'
+                    headerSortActive === 'customerID' && direction === 'desc',
+                  sortActive: headerSortActive === 'customerID'
                 }"
               >
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('lastName')">
-            Lastname
+          <th (click)="sortClickHandler('productID')">
+            Type
             <span>
               <i
                 [ngClass]="{
                   fa: true,
                   'fa-arrow-down':
-                    headerSortActive !== 'lastName' || direction === 'asc',
+                    headerSortActive !== 'productID' || direction === 'asc',
                   'fa-arrow-up':
-                    headerSortActive === 'lastName' && direction === 'desc',
-                  sortActive: headerSortActive === 'lastName'
+                    headerSortActive === 'productID' && direction === 'desc',
+                  sortActive: headerSortActive === 'productID'
                 }"
               >
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('email')">
-            Email
+          <th (click)="sortClickHandler('amount')">
+            Catalog ID
             <span>
               <i
                 [ngClass]="{
                   fa: true,
                   'fa-arrow-down':
-                    headerSortActive !== 'email' || direction === 'asc',
+                    headerSortActive !== 'amount' || direction === 'asc',
                   'fa-arrow-up':
-                    headerSortActive === 'email' && direction === 'desc',
-                  sortActive: headerSortActive === 'email'
+                    headerSortActive === 'amount' && direction === 'desc',
+                  sortActive: headerSortActive === 'amount'
                 }"
               >
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('address', 'string')">
-            Address
+          <th (click)="sortClickHandler('status')">
+            Description
             <span>
               <i
                 [ngClass]="{
                   fa: true,
                   'fa-arrow-down':
-                    headerSortActive !== 'address' || direction === 'asc',
+                    headerSortActive !== 'status' || direction === 'asc',
                   'fa-arrow-up':
-                    headerSortActive === 'address' && direction === 'desc',
-                  sortActive: headerSortActive === 'address'
+                    headerSortActive === 'status' && direction === 'desc',
+                  sortActive: headerSortActive === 'status'
                 }"
               >
               </i>
             </span>
           </th>
-          <th (click)="sortClickHandler('active')">
-            Active
-            <span>
-              <i
-                [ngClass]="{
-                  fa: true,
-                  'fa-arrow-down':
-                    headerSortActive !== 'active' || direction === 'asc',
-                  'fa-arrow-up':
-                    headerSortActive === 'active' && direction === 'desc',
-                  sortActive: headerSortActive === 'active'
-                }"
-              >
-              </i>
-            </span>
-          </th>
-          <th></th>
         </tr>
       </thead>
 
       <tbody>
         <tr
           *ngFor="
-            let customer of customerList$
+            let order of orderList$
               | async
               | filter: phrase:filterKey
               | sort: direction:column:type
           "
         >
-          <td>{{ customer.id }}</td>
-          <td>{{ customer.firstName }}</td>
-          <td>{{ customer.lastName }}</td>
-          <td>{{ customer.email }}</td>
-          <td>{{ customer.address.full }}</td>
-          <td>{{ customer.active }}</td>
+          <td>{{ order.id }}</td>
+          <td>{{ order.customerID }}</td>
+          <td>{{ order.productID }}</td>
+          <td>{{ order.amount }}</td>
+          <td>{{ order.status }}</td>
+
           <td>
             <div
               class="btn-group"
               role="group"
               aria-label="Button group with edit and delete buttons"
             >
-              <button [routerLink]="['/edit-customer', customer.id]" class="btn btn-warning">
+              <button
+                class="btn btn-warning"
+                [routerLink]="['/edit-order', order.id]"
+              >
                 <i class="material-icons">edit</i>
               </button>
-              <button (click)="onDelete(customer.id)" class="btn btn-danger">
+              <button class="btn btn-danger" (click)="onDelete(order.id)">
                 <i class="material-icons">delete</i>
               </button>
             </div>
