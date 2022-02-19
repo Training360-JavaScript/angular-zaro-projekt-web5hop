@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -37,6 +38,12 @@ export class ProductComponent implements OnInit {
     this.direction = direction;
     this.column = column;
     this.type = type ? type : typeof this.productDefault[column];
+  }
+
+  deleteProduct(id: number, index: number) {
+    this.productService.delete(id).subscribe(
+      () => {this.productList$ = this.productService.getAll()}
+    )
   }
 
   constructor(
