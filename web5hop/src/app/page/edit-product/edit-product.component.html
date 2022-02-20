@@ -51,7 +51,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="" class="bmd-label-floating">CatID</label>
-            <input [(ngModel)]="product.catID" pattern="[0-9]" type="number" #catID="ngModel" required name="catid" class="form-control">
+            <input [(ngModel)]="product.catID" pattern="[0-9]{1,12}" type="number" #catID="ngModel" required name="catid" class="form-control">
             <div *ngIf="catID.invalid && (catID.dirty || catID.touched)" class="alert mt-2">
               <div *ngIf="catID.errors?.['pattern']">
                 Please enter a valid catID.
@@ -67,7 +67,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Description</label>
-            <input [(ngModel)]="product.description" pattern="[a-zA-Z-]{1,40}" type="text" #description="ngModel" required name="description" class="form-control">
+            <input [(ngModel)]="product.description" pattern="[a-zA-Z.,-]{1,160}" type="text" #description="ngModel" required name="description" class="form-control">
             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert mt-2">
               <div *ngIf="description.errors?.['pattern']">
                 Please enter a valid description.
@@ -83,7 +83,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Price</label>
-            <input [(ngModel)]="product.price" pattern="[0-9]" type="number" #price="ngModel" required name="price" class="form-control">
+            <input [(ngModel)]="product.price" pattern="[0-9]{1,12}" type="number" #price="ngModel" required name="price" class="form-control">
             <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert mt-2">
               <div *ngIf="price.errors?.['pattern']">
                 Please enter a valid price.
