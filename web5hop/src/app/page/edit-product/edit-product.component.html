@@ -4,7 +4,7 @@
     <h4 *ngIf="!(product$ | async)" class="card-title">New Product</h4>
     <p class="card-category">Don't forget to save your changes :)</p>
   </div>
-  <div *ngIf="product$ | async as product" class="card-body">
+  <div *ngIf="product" class="card-body">
     <form #productForm="ngForm" (ngSubmit)="updateProduct(product)">
       <div class="row">
         <div class="col-md-2">
@@ -19,7 +19,7 @@
         <div class="col-md-10">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Name</label>
-            <input [(ngModel)]="product.name" pattern="[A-Za-z]" type="text" #name="ngModel" required name="name"
+            <input [(ngModel)]="product.name" pattern="[a-zA-Z-]{1,40}" type="text" #name="ngModel" required name="name"
               class="form-control">
             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert mt-2">
               <div *ngIf="name.errors?.['pattern']">
@@ -36,7 +36,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Type</label>
-            <input [(ngModel)]="product.type" pattern="[A-Za-z]" type="text" #type="ngModel" required name="type"
+            <input [(ngModel)]="product.type" pattern="[a-zA-Z-]{1,40}" type="text" #type="ngModel" required name="type"
               class="form-control">
             <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert mt-2">
               <div *ngIf="type.errors?.['pattern']">
@@ -67,7 +67,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Description</label>
-            <input [(ngModel)]="product.description" pattern="[A-Za-z]" type="text" #description="ngModel" required name="description" class="form-control">
+            <input [(ngModel)]="product.description" pattern="[a-zA-Z-]{1,40}" type="text" #description="ngModel" required name="description" class="form-control">
             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert mt-2">
               <div *ngIf="description.errors?.['pattern']">
                 Please enter a valid description.
