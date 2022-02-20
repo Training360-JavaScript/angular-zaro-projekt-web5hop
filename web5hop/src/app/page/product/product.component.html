@@ -151,8 +151,12 @@
           <td>{{ item.catID }}</td>
           <td>{{ item.description }}</td>
           <td>{{ item.price }}</td>
-          <td>{{ item.featured }}</td>
-          <td>{{ item.active }}</td>
+          <td>
+            <input type="checkbox" [checked]="item.featured == 'true'">
+          </td>
+          <td>
+            <input type="checkbox" [checked]="item.active == 'true'">
+          </td>
         <td>
           <div
               class="btn-group"
