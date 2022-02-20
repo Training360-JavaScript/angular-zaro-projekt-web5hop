@@ -17,9 +17,12 @@ body {
 }
 
 .sortActive {
-  color: rgb(25, 188, 238);  
+  color: rgb(25, 188, 238);
 }
 
-thead {
+th:not(:last-child) {
   cursor: pointer;
+  &:hover {
+     background:#b6e6ed48
+    }
 }
