@@ -40,10 +40,9 @@ export class ProductComponent implements OnInit {
     this.type = type ? type : typeof this.productDefault[column];
   }
 
-  deleteProduct(id: number, index: number) {
-    this.productService.delete(id).subscribe(
-      () => {this.productList$ = this.productService.getAll()}
-    )
+  deleteProduct(id: number) {
+    this.productService.delete(id).subscribe(() => {});
+    this.productList$ = this.productService.getAll();
   }
 
   constructor(
