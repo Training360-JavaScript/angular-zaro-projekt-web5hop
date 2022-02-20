@@ -32,13 +32,13 @@
               *ngIf="
                 customerID.invalid && (customerID.dirty || customerID.touched)
               "
-              class="alert"
+              class="alert alert-danger mt-2"
             >
               <div *ngIf="customerID.errors?.['pattern']">
                 Please enter a number greater than 0
               </div>
               <div *ngIf="customerID.errors?.['required']">
-                Order Id is required
+                Customer Id is required
               </div>
             </div>
           </div>
@@ -58,13 +58,13 @@
               *ngIf="
                 productID.invalid && (productID.dirty || productID.touched)
               "
-              class="alert"
+              class="alert alert-danger mt-2"
             >
               <div *ngIf="productID.errors?.['pattern']">
                 Please enter a number greater than 0
               </div>
               <div *ngIf="productID.errors?.['required']">
-                Order Id is required
+                Product Id is required
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@
             />
             <div
               *ngIf="amount.invalid && (amount.dirty || amount.touched)"
-              class="alert"
+              class="alert alert-danger mt-2"
             >
               <div *ngIf="amount.errors?.['pattern']">
                 Please enter a number greater than 0
