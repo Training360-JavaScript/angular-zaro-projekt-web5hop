@@ -26,6 +26,7 @@ import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartComponent } from './common/chart/chart.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OrderComponent,
     EditOrderComponent,
     DashboardComponent,
+    ChartComponent,
 
   ],
   imports: [
