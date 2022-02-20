@@ -11,9 +11,8 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class EditProductComponent implements OnInit {
 
-  product$: Observable<Product> = this.ar.params.pipe(
-    switchMap(params => this.productService.get(params['id']))
-  );
+  product$!: Observable<Product>;
+  product: Product = new Product();
 
   constructor(
     private ar: ActivatedRoute,
@@ -22,13 +21,28 @@ export class EditProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.product$ = this.ar.params.pipe(
+      switchMap(params => this.productService.get(params['id']))
+    );
+    this.product$.subscribe(data => {
+      if(data) this.product = data
+    });
   }
 
-  onUpdate(product: Product): void {
+  createProduct(product: Product) {
+    this.productService.create(product).subscribe({
+      next: product => this.router.navigate(['/', 'product']),
+      error: err => console.error(err)
+    });
+  }
+
+  updateProduct(product: Product): void {
     this.productService.update(product).subscribe({
       next: product => this.router.navigate(['/', 'product']),
       error: err => console.error(err)
     });
   }
+
+  
 
 }
