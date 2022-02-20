@@ -1,12 +1,12 @@
 export class Product {
     //•	Product (id, name, type, catID, description, price, featured, active)
     [key: string]: any;
-    id: number = 0;
+    id!: number;
     name: string = '';
     type: string = '';
-    catID: number = 0;
+    catID!: number;
     description: string = '';
-    price: number = 0;
-    featured: boolean = false;
-    active: boolean = true;
+    price!: number;
+    featured!: boolean;
+    active!: boolean;
 }
