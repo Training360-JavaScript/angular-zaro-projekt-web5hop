@@ -1,6 +1,9 @@
-import { Customer } from './../../model/customer';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+// import { Labels } from 'ng2-charts';
+import { Customer } from './../../model/customer';
+
+import { map, Observable } from 'rxjs';
 import { Bill } from 'src/app/model/bill';
 import { BillService } from './../../service/bill.service';
 import { Product } from 'src/app/model/product';
@@ -15,42 +18,49 @@ import { Order } from 'src/app/model/order';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  billsNew: number = 0;
-  billList$: Observable<Bill[]> = this.billService.getAll();
-  productsActive: number = 0;
-  productList$: Observable<Product[]> = this.productService.getAll();
-  customersActive: number = 0;
-  customerList$: Observable<Customer[]> = this.customerService.getAll();
-  ordersActive: number = 0;
-  orderList$: Observable<Order[]> = this.orderService.getAll()
+
+  productListActive$ = this.productService.getAllbyProperty('active', true).pipe(map(r => r.length));
+  productListInactive$ = this.productService.getAllbyProperty('active', false).pipe(map(r => r.length));
+  productLabel = ['Active', 'Inactive'];
+  productTitle = "Products"
+  customerListActive$ = this.customerService.getAllbyProperty('active', true).pipe(map(r => r.length));
+  customerListInactive$ = this.customerService.getAllbyProperty('active', false).pipe(map(r => r.length));
+  customerLabel = ['Active', 'Inactive'];
+  customerTitle = "Customers"
+  orderListNew$ = this.orderService.getAllbyProperty('status', 'new').pipe(map(r => r.length));
+  orderListPaid$ = this.orderService.getAllbyProperty('status', 'paid').pipe(map(r => r.length));
+  orderLabel = ['New', 'Paid'];
+  orderTitle = "Orders"
+  billListNew$ = this.billService.getAllbyProperty('status', 'new').pipe(map(r => r.length));
+  billListPaid$ = this.billService.getAllbyProperty('status', 'paid').pipe(map(r => r.length));
+  billLabel = ['New', 'Paid'];
+  billTitle = "Bills"
+
+  // billList$: Observable<Bill[]> = this.billService.getAll();
+  /* billListNew$: Observable<number> = this.billList$.pipe(
+    map((results) =>
+      results.filter((r) => {
+        return r.status == 'new'
+      }).length
+    )
+  ); */
+
+  /* billListPaid$: Observable<number> = this.billList$.pipe(
+    map((results) =>
+      results.filter((r) => {
+        return r.status == 'paid'
+      }).length
+    )
+  ); */
 
   constructor(
     private billService: BillService,
     private productService: ProductService,
     private customerService: CustomerService,
-    private orderService: OrderService,
-    ) {}
+    private orderService: OrderService
+  ) {}
 
   ngOnInit(): void {
-    this.billList$.subscribe({
-      next: (data) => {
-        this.billsNew = data.filter((d) => d.status === 'new').length;
-      },
-    });
-    this.productList$.subscribe({
-      next: (data) => {
-        this.productsActive = data.filter((d) => d.active === true).length;
-      },
-    });
-    this.customerList$.subscribe({
-      next: (data) => {
-        this.customersActive = data.filter((d) => d.active === true).length;
-      },
-    });
-    this.orderList$.subscribe({
-      next: (data) => {
-        this.ordersActive = data.filter((d) => d.status === 'new').length;
-      },
-    });
+    
   }
 }

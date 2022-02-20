@@ -1,4 +1,5 @@
-<div class="content">
+
+<div class="content mb-5">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-0">
@@ -8,7 +9,8 @@
               <i class="material-icons">shop</i>
             </div>
             <p class="card-category">Products</p>
-            <h3 class="card-title">{{ productsActive }}<br>
+            <h3 class="card-title">
+              {{ productListActive$ | async }}<br />
               <small>Active</small>
             </h3>
           </div>
@@ -26,7 +28,8 @@
               <i class="material-icons">person</i>
             </div>
             <p class="card-category">Customers</p>
-            <h3 class="card-title">{{ customersActive }}<br>
+            <h3 class="card-title">
+              {{ customerListActive$ | async }}<br />
               <small>Active</small>
             </h3>
           </div>
@@ -44,7 +47,8 @@
               <i class="material-icons">input</i>
             </div>
             <p class="card-category">Orders</p>
-            <h3 class="card-title">{{ ordersActive }}<br>
+            <h3 class="card-title">
+              {{ orderListNew$ | async}}<br />
               <small>Unpaid orders</small>
             </h3>
           </div>
@@ -62,7 +66,8 @@
               <i class="material-icons">euro</i>
             </div>
             <p class="card-category">Bills</p>
-            <h3 class="card-title">{{ billsNew }}<br>
+            <h3 class="card-title">
+              {{ billListNew$ | async }}<br />
               <small>$ Unpaid</small>
             </h3>
           </div>
@@ -72,6 +77,25 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-5">
+        <app-chart [data0$]="productListActive$" [data1$]="productListInactive$" [labels]="productLabel" [title]="productTitle"></app-chart>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-5">
+        <app-chart [data0$]="customerListActive$" [data1$]="customerListInactive$" [labels]="customerLabel" [title]="customerTitle"></app-chart>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-5">
+        <app-chart [data0$]="orderListNew$" [data1$]="orderListPaid$" [labels]="orderLabel" [title]="orderTitle"></app-chart>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-lg-5">
+        <app-chart [data0$]="billListNew$" [data1$]="billListPaid$" [labels]="billLabel" [title]="billTitle"></app-chart>
       </div>
     </div>
   </div>
