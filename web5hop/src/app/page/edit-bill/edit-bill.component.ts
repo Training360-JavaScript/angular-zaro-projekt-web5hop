@@ -42,5 +42,7 @@ export class EditBillComponent implements OnInit {
     )
   }
 
-
+  templateForm(value: any) {
+    alert(JSON.stringify(value));
+  }
 }

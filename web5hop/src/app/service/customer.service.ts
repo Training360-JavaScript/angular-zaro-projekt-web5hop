@@ -53,4 +53,14 @@ export class CustomerService extends BaseService<Customer> {
       customer
     );
   }
+
+  getAllbyProperty(key: string, value: any): Observable<Customer[]> {
+    return this.getAll().pipe(
+      map((results) =>
+        results.filter((r) => {
+          return r[key] === value;
+        })
+      )
+    );
+  }
 }
