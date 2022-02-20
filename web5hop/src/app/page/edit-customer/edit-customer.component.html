@@ -32,7 +32,7 @@
             />
             <div
               *ngIf="
-                firstName.invalid && (firstName.dirty || firstName.touched)
+                firstName.invalid && firstName.touched
               "
               class="alert alert-danger mt-2"
             >
@@ -73,7 +73,7 @@
             <input
               [(ngModel)]="customer.email"
               #email="ngModel"
-              pattern="^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$"
+              pattern="^([A-Za-z0-9_\-\.])+@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$"
               id="email"
               name="email"
               required
