@@ -100,7 +100,7 @@
                 <label for="">Zip:</label>
                 <input
                   [(ngModel)]="customer.address.zip"
-                  pattern="(^\d{5}$)|(^\d{5}-\d{4}$)"
+                  pattern="([\d]+)"
                   #zip="ngModel"
                   required
                   name="zip"
@@ -147,6 +147,7 @@
                 <input
                   [(ngModel)]="customer.address.city"
                   #city="ngModel"
+                  pattern="[A-Za-z]{1,32}"
                   name="city"
                   id="city"
                   type="text"
@@ -168,6 +169,7 @@
                 <input
                   [(ngModel)]="customer.address.street"
                   #street="ngModel"
+                  pattern="[A-Za-z]{1,32}"
                   name="street"
                   id="street"
                   type="text"
