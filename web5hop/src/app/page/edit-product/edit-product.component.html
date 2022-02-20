@@ -9,19 +9,36 @@
       <div class="row">
         <div class="col-md-2">
           <div class="form-group">
-            <label for="" class="bmd-label-floating">ID
+            <label for="" class="bmd-label-floating"
+              >ID
               <span *ngIf="product.id">{{ product.id }}</span>
               <span *ngIf="!product.id">Auto-generated</span>
             </label>
-            <input [(ngModel)]="product.id" required type="hidden" name="id" class="form-control">
+            <input
+              [(ngModel)]="product.id"
+              required
+              type="hidden"
+              name="id"
+              class="form-control"
+            />
           </div>
         </div>
         <div class="col-md-10">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Name</label>
-            <input [(ngModel)]="product.name" pattern="[a-zA-Z .,-]{1,40}" type="text" #name="ngModel" required
-              name="name" class="form-control">
-            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.name"
+              pattern="[a-zA-Z .,-]{1,40}"
+              type="text"
+              #name="ngModel"
+              required
+              name="name"
+              class="form-control"
+            />
+            <div
+              *ngIf="name.invalid && (name.dirty || name.touched)"
+              class="alert mt-2"
+            >
               <div *ngIf="name.errors?.['pattern']">
                 Please enter a valid product name.
               </div>
@@ -36,30 +53,46 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Type</label>
-            <input [(ngModel)]="product.type" pattern="[a-zA-Z .,-]{1,40}" type="text" #type="ngModel" required
-              name="type" class="form-control">
-            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.type"
+              pattern="[a-zA-Z .,-]{1,40}"
+              type="text"
+              #type="ngModel"
+              required
+              name="type"
+              class="form-control"
+            />
+            <div
+              *ngIf="type.invalid && (type.dirty || type.touched)"
+              class="alert mt-2"
+            >
               <div *ngIf="type.errors?.['pattern']">
                 Please enter a valid type.
               </div>
-              <div *ngIf="type.errors?.['required']">
-                Type is required.
-              </div>
+              <div *ngIf="type.errors?.['required']">Type is required.</div>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="" class="bmd-label-floating">CatID</label>
-            <input [(ngModel)]="product.catID" pattern="[0-9]{1,12}" type="number" #catID="ngModel" required
-              name="catid" class="form-control">
-            <div *ngIf="catID.invalid && (catID.dirty || catID.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.catID"
+              pattern="[0-9]{1,12}"
+              type="number"
+              #catID="ngModel"
+              required
+              name="catid"
+              class="form-control"
+            />
+            <div
+              *ngIf="catID.invalid && (catID.dirty || catID.touched)"
+              class="alert mt-2"
+            >
               <div *ngIf="catID.errors?.['pattern']">
                 Please enter a valid catID.
               </div>
-              <div *ngIf="catID.errors?.['required']">
-                CatID is required.
-              </div>
+              <div *ngIf="catID.errors?.['required']">CatID is required.</div>
             </div>
           </div>
         </div>
@@ -68,9 +101,22 @@
         <div class="col-md-12">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Description</label>
-            <input [(ngModel)]="product.description" pattern="[a-zA-Z .,-)(\\&-]{1,160}" type="text"
-              #description="ngModel" required name="description" class="form-control">
-            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.description"
+              pattern="[a-zA-Z .,-)(\\&-]{1,160}"
+              type="text"
+              #description="ngModel"
+              required
+              name="description"
+              class="form-control"
+            />
+            <div
+              *ngIf="
+                description.invalid &&
+                (description.dirty || description.touched)
+              "
+              class="alert mt-2"
+            >
               <div *ngIf="description.errors?.['pattern']">
                 Please enter a valid description.
               </div>
@@ -85,24 +131,41 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Price</label>
-            <input [(ngModel)]="product.price" pattern="[0-9]{1,12}" type="number" #price="ngModel" required
-              name="price" class="form-control">
-            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.price"
+              pattern="[0-9]{1,12}"
+              type="number"
+              #price="ngModel"
+              required
+              name="price"
+              class="form-control"
+            />
+            <div
+              *ngIf="price.invalid && (price.dirty || price.touched)"
+              class="alert mt-2"
+            >
               <div *ngIf="price.errors?.['pattern']">
                 Please enter a valid price.
               </div>
-              <div *ngIf="price.errors?.['required']">
-                Price is required.
-              </div>
+              <div *ngIf="price.errors?.['required']">Price is required.</div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="" class="bmd-label-floating">Featured</label>
-            <input [(ngModel)]="product.featured" type="boolean" #featured="ngModel" required name="featured"
-              class="form-control">
-            <div *ngIf="featured.invalid && (featured.dirty || featured.touched)" class="alert mt-2">
+            <input
+              [(ngModel)]="product.featured"
+              type="boolean"
+              #featured="ngModel"
+              required
+              name="featured"
+              class="form-control"
+            />
+            <div
+              *ngIf="featured.invalid && (featured.dirty || featured.touched)"
+              class="alert mt-2"
+            >
               <div *ngIf="featured.errors?.['required']">
                 Featured is required.
               </div>
@@ -111,9 +174,18 @@
           <div class="col-md-4">
             <div class="form-group">
               <label for="" class="bmd-label-floating">Active</label>
-              <input [(ngModel)]="product.active" type="boolean" #active="ngModel" required name="active"
-                class="form-control">
-              <div *ngIf="active.invalid && (active.dirty || active.touched)" class="alert mt-2">
+              <input
+                [(ngModel)]="product.active"
+                type="boolean"
+                #active="ngModel"
+                required
+                name="active"
+                class="form-control"
+              />
+              <div
+                *ngIf="active.invalid && (active.dirty || active.touched)"
+                class="alert mt-2"
+              >
                 <div *ngIf="active.errors?.['required']">
                   Active is required.
                 </div>
@@ -121,8 +193,15 @@
             </div>
           </div>
         </div>
-        <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary pull-right">Save</button>
+        <button
+          [disabled]="productForm.invalid"
+          type="submit"
+          class="btn btn-primary pull-right"
+        >
+          Save
+        </button>
         <div class="clearfix"></div>
+      </div>
     </form>
   </div>
 </div>
