@@ -70,11 +70,11 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="bill.status"
-                class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
+                class="form-check-input"
+                id="new"
+                name="status"
+                [(ngModel)]="bill.status"
                 value="new"
               />
               New
@@ -86,13 +86,13 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="bill.status"
-                class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
+                class="form-check-input"
+                id="paid"
+                name="status"
+                [(ngModel)]="bill.status"
                 value="paid"
-                checked
+
               />
               Paid
               <span class="circle">
@@ -122,6 +122,7 @@
             </button>
           </div>
         </form>
+
       </div>
     </div>
   </div>
