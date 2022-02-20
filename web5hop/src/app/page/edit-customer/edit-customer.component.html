@@ -24,7 +24,7 @@
               [(ngModel)]="customer.firstName"
               name="firstName"
               id="firstName"
-              pattern="[A-Za-z]{1,32}"
+              pattern="[A-Za-zöőüűóúáéí ]{1,32}"
               #firstName="ngModel"
               required
               type="text"
@@ -49,7 +49,7 @@
             <input
               [(ngModel)]="customer.lastName"
               #lastName="ngModel"
-              pattern="[A-Za-z]{1,32}"
+              pattern="[A-Za-zöőüűóúáéí ]{1,32}"
               id="lastName"
               name="lastName"
               required
@@ -91,7 +91,7 @@
             </div>
           </div>
 
-          <div class="form-group border border-secondary rounded p-3 pb-4 pt-4">
+          <div class="form-group border border-secondary rounded p-3 pb-4 pt-4 mb-5">
             <div>
               <h5>ADDRESS</h5>
             </div>
@@ -122,7 +122,7 @@
                 <label for="">Country:</label>
                 <input
                   [(ngModel)]="customer.address.country"
-                  pattern="[A-Za-z]{1,32}"
+                  pattern="[A-Za-zöőüűóúáéí ]{1,32}"
                   #country="ngModel"
                   name="country"
                   id="country"
@@ -147,7 +147,7 @@
                 <input
                   [(ngModel)]="customer.address.city"
                   #city="ngModel"
-                  pattern="[A-Za-z]{1,32}"
+                  pattern="[A-Za-zöőüűóúáéí ]{1,32}"
                   name="city"
                   id="city"
                   type="text"
@@ -159,7 +159,7 @@
                   class="alert alert-danger mt-2"
                 >
                   <div *ngIf="city.errors?.['pattern']">
-                    Please enter a country
+                    Please enter a city
                   </div>
                   <div *ngIf="city.errors?.['required']">City is required</div>
                 </div>
@@ -169,7 +169,7 @@
                 <input
                   [(ngModel)]="customer.address.street"
                   #street="ngModel"
-                  pattern="[A-Za-z]{1,32}"
+                  pattern="[A-Za-zöőüűóúáéí ]{1,32}"
                   name="street"
                   id="street"
                   type="text"
@@ -181,7 +181,7 @@
                   class="alert alert-danger mt-2"
                 >
                   <div *ngIf="street.errors?.['pattern']">
-                    Please enter a country
+                    Please enter a street
                   </div>
                   <div *ngIf="street.errors?.['required']">Street is required</div>
                 </div>
