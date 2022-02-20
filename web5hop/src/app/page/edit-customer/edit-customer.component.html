@@ -146,19 +146,43 @@
                 <label for="">City:</label>
                 <input
                   [(ngModel)]="customer.address.city"
+                  #city="ngModel"
                   name="city"
+                  id="city"
                   type="text"
                   class="form-control"
+                  required
                 />
+                <div
+                  *ngIf="city.invalid && (city.dirty || city.touched)"
+                  class="alert alert-danger mt-2"
+                >
+                  <div *ngIf="city.errors?.['pattern']">
+                    Please enter a country
+                  </div>
+                  <div *ngIf="city.errors?.['required']">City is required</div>
+                </div>
               </div>
               <div class="col-6">
                 <label for="">Street:</label>
                 <input
                   [(ngModel)]="customer.address.street"
+                  #street="ngModel"
                   name="street"
+                  id="street"
                   type="text"
+                  required
                   class="form-control"
                 />
+                <div
+                  *ngIf="street.invalid && (street.dirty || street.touched)"
+                  class="alert alert-danger mt-2"
+                >
+                  <div *ngIf="street.errors?.['pattern']">
+                    Please enter a country
+                  </div>
+                  <div *ngIf="street.errors?.['required']">Street is required</div>
+                </div>
               </div>
             </div>
           </div>
