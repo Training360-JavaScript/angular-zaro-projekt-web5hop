@@ -21,7 +21,7 @@
             <input
               [(ngModel)]="order.customerID"
               name="customerID"
-              type="text"
+              type="number"
               class="form-control"
               required
               pattern="^[1-9][0-9]*$"
@@ -94,11 +94,11 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="order.status"
+                [(ngModel)]="order.status"
                 class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios1"
+                name="status"
+                id="RadioNew"
                 value="new"
               />
               New
@@ -110,11 +110,27 @@
           <div class="form-check form-check-radio">
             <label class="form-check-label">
               <input
-                [ngModel]="order.status"
+                [(ngModel)]="order.status"
                 class="form-check-input"
                 type="radio"
-                name="exampleRadios"
-                id="exampleRadios2"
+                name="status"
+                id="RadioShipped"
+                value="shipped"
+              />
+              Shipped
+              <span class="circle">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input
+                [(ngModel)]="order.status"
+                class="form-check-input"
+                type="radio"
+                name="status"
+                id="RadioPaid"
                 value="paid"
                 checked
               />

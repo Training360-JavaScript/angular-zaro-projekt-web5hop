@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from 'src/app/model/customer';
 import { Address } from 'src/app/model/address';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-customers',
@@ -44,10 +45,14 @@ export class CustomersComponent implements OnInit {
     this.customerService.delete(id).subscribe(() => {
       this.customerList$ = this.customerService.getAll();
     });
+    setTimeout(() => {
+      this.notifyService.showSuccess('Successfully deleted', `Customer ID ${id}`)
+    }, 1000);
   }
 
   constructor(
     private customerService: CustomerService,
+    private notifyService: NotificationService,
   ) { }
 
   ngOnInit(): void {

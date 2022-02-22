@@ -21,12 +21,15 @@ import { NgChartsModule } from 'ng2-charts';
 
 
 
+
 import { OrderComponent } from './page/order/order.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartComponent } from './common/chart/chart.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -56,6 +59,7 @@ import { ChartComponent } from './common/chart/chart.component';
     NgChartsModule,
     RouterModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
 
   ],
   providers: [],

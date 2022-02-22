@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { Product } from 'src/app/model/product';
+import { NotificationService } from 'src/app/service/notification.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class EditProductComponent implements OnInit {
     private ar: ActivatedRoute,
     private productService: ProductService,
     private router: Router,
+    private notifyService: NotificationService,
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class EditProductComponent implements OnInit {
       next: product => this.router.navigate(['/', 'product']),
       error: err => console.error(err)
     });
+    this.notifyService.showSuccess('Successfully created', `New Product`);
   }
 
   updateProduct(product: Product): void {
@@ -41,8 +44,12 @@ export class EditProductComponent implements OnInit {
       next: product => this.router.navigate(['/', 'product']),
       error: err => console.error(err)
     });
+    this.notifyService.showSuccess(
+      'Successfully updated',
+      `Product ID ${this.product.id}`
+    );
   }
 
-  
+
 
 }
