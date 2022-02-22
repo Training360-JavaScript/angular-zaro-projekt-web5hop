@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product';
+import { NotificationService } from 'src/app/service/notification.service';
 import { ProductService } from 'src/app/service/product.service';
 
 
@@ -41,12 +42,16 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
-    this.productService.delete(id).subscribe(() => {});
-    this.productList$ = this.productService.getAll();
+    this.productService.delete(id).subscribe(() => {this.productList$ = this.productService.getAll()});
+
+    setTimeout(() => {
+      this.notifyService.showSuccess('Successfully deleted', `Product ID ${id}`)
+    }, 1000);
   }
 
   constructor(
     private productService: ProductService,
+    private notifyService: NotificationService
   ) { }
 
   ngOnInit(): void {

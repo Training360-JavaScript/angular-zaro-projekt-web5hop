@@ -1,3 +1,4 @@
+import { NotificationService } from 'src/app/service/notification.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bill } from 'src/app/model/bill';
@@ -43,11 +44,17 @@ export class BillComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.billService.delete(id).subscribe(() => {});
-    this.list$ = this.billService.getAll();
+    this.billService.delete(id).subscribe(() => {this.list$ = this.billService.getAll()});
+
+    setTimeout(() => {
+      this.notifyService.showSuccess('Successfully deleted', `Bill ID ${id}`)
+    }, 1000);
   }
 
-  constructor(private billService: BillService) {}
+  constructor(
+    private billService: BillService,
+    private notifyService: NotificationService,
+    ) {}
 
   ngOnInit(): void {}
 }

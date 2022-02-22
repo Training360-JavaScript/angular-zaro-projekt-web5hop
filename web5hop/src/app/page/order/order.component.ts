@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order } from 'src/app/model/order';
+import { NotificationService } from 'src/app/service/notification.service';
 import { OrderService } from 'src/app/service/order.service';
 
 
@@ -44,9 +45,13 @@ export class OrderComponent implements OnInit {
     this.orderService.delete(id).subscribe(() => {
       this.orderList$ = this.orderService.getAll();
     });
+    setTimeout(() => {
+      this.notifyService.showSuccess('Successfully deleted', `Bill ID ${id}`)
+    }, 1000);
   }
   constructor(
     private orderService: OrderService,
+    private notifyService: NotificationService
   ) { }
 
   ngOnInit(): void {
