@@ -1,0 +1,168 @@
+
+<div class="col-2 form-group">
+  <label for="tableSearch">Keresés:</label>
+  <select [(ngModel)]="filterKey" id="tableSearch" class="form-control">
+    <option value="">All column</option>
+    <option *ngFor="let key of keys" [value]="key">
+      {{ key | titlecase }}
+    </option>
+  </select>
+</div>
+
+<div class="col-8 mb-5 input_container">
+  <input
+    [(ngModel)]="phrase"
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+  />
+</div>
+
+<div>
+  <button [routerLink]="['/edit-customer', 0]" class="col-12 mb-5 btn btn-info">Create new customer</button>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th (click)="sortClickHandler('id')">
+            Id
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'id' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'id' && direction === 'desc',
+                  sortActive: headerSortActive === 'id'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th (click)="sortClickHandler('firstName')">
+            Firstname
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'firstName' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'firstName' && direction === 'desc',
+                  sortActive: headerSortActive === 'firstName'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th (click)="sortClickHandler('lastName')">
+            Lastname
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'lastName' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'lastName' && direction === 'desc',
+                  sortActive: headerSortActive === 'lastName'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th (click)="sortClickHandler('email')">
+            Email
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'email' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'email' && direction === 'desc',
+                  sortActive: headerSortActive === 'email'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th (click)="sortClickHandler('address', 'string')">
+            Address
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'address' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'address' && direction === 'desc',
+                  sortActive: headerSortActive === 'address'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th (click)="sortClickHandler('active')">
+            Active
+            <span>
+              <i
+                [ngClass]="{
+                  fa: true,
+                  'fa-arrow-down':
+                    headerSortActive !== 'active' || direction === 'asc',
+                  'fa-arrow-up':
+                    headerSortActive === 'active' && direction === 'desc',
+                  sortActive: headerSortActive === 'active'
+                }"
+              >
+              </i>
+            </span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="
+            let customer of customerList$
+              | async
+              | filter: phrase:filterKey
+              | sort: direction:column:type
+          "
+        >
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address.full }}</td>
+          <td *ngIf="customer.active">
+            <i class="material-icons">done</i>
+          </td>
+          <td *ngIf="!customer.active">
+            <i class="material-icons">clear</i>
+          </td>
+          <td>
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Button group with edit and delete buttons"
+            >
+              <button [routerLink]="['/edit-customer', customer.id]" class="btn btn-warning">
+                <i class="material-icons">edit</i>
+              </button>
+              <button (click)="onDelete(customer.id)" class="btn btn-danger">
+                <i class="material-icons">delete</i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
